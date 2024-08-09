@@ -26,9 +26,7 @@ export const AJAX = async function (url, uploadData = undefined) {
         timeout(TIMEOUT_SEC)
       ]);
 
-    console.log(res);
     const data = await res.json();
-    console.log(data);
 
     if (!res.ok) throw new Error(`${data.message} (${res.status})`);
 
