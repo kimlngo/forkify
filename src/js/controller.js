@@ -1,3 +1,5 @@
+import { version as RELEASE_VERSION } from '../../package.json';
+
 import * as model from './model.js';
 import * as Constant from './constant.js';
 import { MODEL_CLOSE_SEC } from './config.js';
@@ -11,16 +13,6 @@ import addRecipeView from './views/addRecipeView.js';
 
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
-
-// https://forkify-api.herokuapp.com/v2
-
-///////////////////////////////////////
-
-//https://forkify-api.herokuapp.com/api/v2/recipes/5ed6604591c37cdc054bc886
-
-// if (module.hot) {
-//   module.hot.accept();
-// }
 
 const controlRecipes = async function () {
   try {
@@ -129,6 +121,8 @@ const controlAddRecipe = async function (newRecipe) {
 
 //pub-sub implementation
 const init = function () {
+  console.log(`Welcome to forkify-kimlngo App v${RELEASE_VERSION}`);
+
   bookmarksView.addRenderHandler(controlRenderBookmarks);
   recipeView.addHandlerRender(controlRecipes);
   recipeView.addHandlerUpdateServings(controlServings);
